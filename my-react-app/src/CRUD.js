@@ -5,6 +5,9 @@ import Modal from "react-bootstrap/Modal";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CRUD = () => {
   const [show, setShow] = useState(false);
@@ -49,23 +52,114 @@ const CRUD = () => {
 
   const [data, setData] = useState([]);
   useEffect(() => {
-    setData(empData);
+    getData();
   }, []);
+  const getData = () => {
+    axios
+      .get("https://localhost:7295/api/Employee")
+      .then((result) => {
+        setData(result.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const handleEdit = (id) => {
-    // alert(id);
     handleShow();
+    axios
+      .get(`https://localhost:7295/api/Employee/${id}`)
+      .then((result) => {
+        setEditName(result.data.name);
+        setEditAge(result.data.age);
+        setEditIsActive(result.data.isActive);
+        seteditId(id);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   const handleDelete = (id) => {
     if (
       window.confirm("Are you sure you want to delete this employee") == true
     ) {
-      alert(id);
+      axios
+        .delete(`https://localhost:7295/api/Employee/${id}`)
+        .then((result) => {
+          if (result.status === 200) {
+            toast.success("Employee has been deleted");
+          }
+        })
+        .catch((error) => {
+          toast.error("Failed to delete employee: " + error.message);
+        });
     }
   };
-  const handleUpdate = () => {};
+  const handleUpdate = () => {
+    const url = `https://localhost:7295/api/Employee/${EditId}`;
+    const data = {
+      id: EditId,
+      name: editname,
+      age: editage,
+      isActive: editisActive,
+    };
+    axios
+      .put(url, data)
+      .then((result) => {
+        handleClose();
+        getData();
+        clear();
+        toast.success("Employee has been updated");
+      })
+      .catch((error) => {
+        toast.error(error);
+      });
+  };
+  const handleSave = () => {
+    const url = `https://localhost:7295/api/Employee`;
+    const data = {
+      name: name,
+      age: age,
+      isActive: isActive,
+    };
+    axios
+      .post(url, data)
+      .then((result) => {
+        getData();
+        clear();
+        toast.success("Employee has been added");
+      })
+      .catch((error) => {
+        toast.error(error);
+      });
+  };
+  const clear = () => {
+    setName("");
+    setAge("");
+    setIsActive(0);
+    setEditName("");
+    setEditAge("");
+    setEditIsActive(0);
+    seteditId("");
+  };
+  const handleActiveChange = (e) => {
+    if (e.target.checked) {
+      setIsActive(1);
+    } else {
+      setIsActive(0);
+    }
+  };
+  const handleEditActiveChange = (e) => {
+    if (e.target.checked) {
+      setEditIsActive(1);
+    } else {
+      setEditIsActive(0);
+    }
+  };
+
   return (
     <Fragment>
+      <ToastContainer></ToastContainer>
       <Container>
         <Row>
           <Col>
@@ -90,13 +184,15 @@ const CRUD = () => {
             <input
               type="checkbox"
               checked={isActive === 1 ? true : false}
-              onChange={(e) => handleEdit(e)}
+              onChange={(e) => handleActiveChange(e)}
               value={isActive}
             ></input>
             <label>Is Active</label>
           </Col>
           <Col>
-            <button className="btn btn-primary">Submit</button>
+            <button className="btn btn-primary" onClick={handleSave}>
+              Submit
+            </button>
           </Col>
         </Row>
       </Container>
@@ -168,13 +264,10 @@ const CRUD = () => {
               <input
                 type="checkbox"
                 checked={editisActive === 1 ? true : false}
-                onChange={(e) => setEditIsActive(e)}
+                onChange={(e) => handleEditActiveChange(e)}
                 value={editisActive}
               ></input>
               <label>Is Active</label>
-            </Col>
-            <Col>
-              <button className="btn btn-primary">Submit</button>
             </Col>
           </Row>
         </Modal.Body>

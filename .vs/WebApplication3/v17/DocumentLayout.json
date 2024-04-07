@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\hp\\OneDrive\\Desktop\\ProjektiLab1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1BB264A7-37A6-49D4-B939-916A543769B9}|WebApplication3\\WebApplication3.csproj|c:\\users\\hp\\onedrive\\desktop\\projektilab1\\webapplication3\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BB264A7-37A6-49D4-B939-916A543769B9}|WebApplication3\\WebApplication3.csproj|solutionrelative:webapplication3\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1BB264A7-37A6-49D4-B939-916A543769B9}|WebApplication3\\WebApplication3.csproj|c:\\users\\hp\\onedrive\\desktop\\projektilab1\\webapplication3\\webapplication3.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{1BB264A7-37A6-49D4-B939-916A543769B9}|WebApplication3\\WebApplication3.csproj|solutionrelative:webapplication3\\webapplication3.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EmployeeController.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\OneDrive\\Desktop\\ProjektiLab1\\WebApplication3\\Controllers\\EmployeeController.cs",
+              "RelativeDocumentMoniker": "WebApplication3\\Controllers\\EmployeeController.cs",
+              "ToolTip": "C:\\Users\\hp\\OneDrive\\Desktop\\ProjektiLab1\\WebApplication3\\Controllers\\EmployeeController.cs",
+              "RelativeToolTip": "WebApplication3\\Controllers\\EmployeeController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-07T18:42:24.997Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "WebApplication3",
+              "DocumentMoniker": "C:\\Users\\hp\\OneDrive\\Desktop\\ProjektiLab1\\WebApplication3\\WebApplication3.csproj",
+              "RelativeDocumentMoniker": "WebApplication3\\WebApplication3.csproj",
+              "ToolTip": "C:\\Users\\hp\\OneDrive\\Desktop\\ProjektiLab1\\WebApplication3\\WebApplication3.csproj",
+              "RelativeToolTip": "WebApplication3\\WebApplication3.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-04-07T18:42:17.464Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
